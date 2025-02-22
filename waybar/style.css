@@ -2,14 +2,14 @@
   background: none;
 }
 #waybar.top > box.horizontal {
-  background: rgba(245, 83, 2, 0.08);
+  background: rgba(245, 196, 2, 0.08);
   border-radius: 12pt;
   margin: 6pt;
   padding: 2pt;
 }
 
 #clock {
-  color: #c84702;
+  color: #df8a3b;
 }
 
 #workspaces {
