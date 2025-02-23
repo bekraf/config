@@ -64,8 +64,8 @@
         "spotify": "󰓇"
       },
       "status-icons": {
-        "paused": "",
-        "stopped": ""
+        "paused": "",
+        "stopped": ""
       }
     },
 
@@ -82,7 +82,7 @@
     },
 
     "clock": {
-      "format": " {:%a %e %b %H:%M}",
+      "format": "  {:%a %e %b %H:%M}",
       "tooltip-format": "<tt>{calendar}</tt>",
       "calendar": {
         "mode": "month",
@@ -100,7 +100,7 @@
       "interval": 10,
       "thermal-zone": 2,
       "critical-threshold": 80,
-      "format": "{icon} {temperatureC}°C",
+      "format": "{temperatureC}°C",
       "format-icons": ["", "", "", "", ""],
       "tooltip-format": "CPU Temperature: {temperatureC}°C"
     },
@@ -108,7 +108,7 @@
     "cpu": {
       "interval": 1,
       "format": " {usage}%",
-      "format-alt": " {load}",
+      "format-alt": "  {load}",
       "states": {
         "warning": 70,
         "critical": 90
@@ -140,8 +140,8 @@
     "pulseaudio": {
       "format": "{icon} {volume}%",
       "format-muted": "󰝟",
-      "format-bluetooth": "{icon} {volume}%",
-      "format-bluetooth-muted": "󰝟",
+      "format-bluetooth": "{icon}  {volume}%",
+      "format-bluetooth-muted": "󰝟 ",
       "format-icons": {
         "headset": "",
         "default": ["󰕿", "󰖀", "󰕾"]
@@ -156,7 +156,7 @@
     },
 
     "battery": {
-      "format": "{icon} {capacity}%",
+      "format": " {capacity}%",
       "format-plugged": " {capacity}%",
       "format-icons": ["", "", "", "", ""],
       "max-length": 25,

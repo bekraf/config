@@ -9,23 +9,23 @@
 }
 
 #clock {
-  color: #f7f9fd;
+  color: #ffe4a7;
 }
 
 #workspaces {
   margin-left: 12pt;
 }
 #workspaces button {
-  color: #f7f9fd;
+  color: #ffe4a7;
 }
 #workspaces button:not(:first-child) {
   margin-left: 2pt;
 }
 #workspaces button.visible {
-  color: #f7f9fd;
+  color: #ffe4a7;
 }
 #workspaces button.active {
-  color: #f7f9fd;
+  color: #ffe4a7;
 }
 #workspaces button:hover, #workspaces button:focus {
   background: none;
@@ -33,12 +33,12 @@
   box-shadow: none;
 }
 #workspaces button:hover:not(.active):not(.visible), #workspaces button:focus:not(.active):not(.visible) {
-  color: #f7f9fd;
+  color: #ffe4a7;
 }
 
 #mpris {
   background: #bd450e;
-  color: #f7f9fd;
+  color: #ffe4a7;
   border-radius: 12pt;
   margin-left: 15pt;
   padding: 0 8pt;
@@ -46,7 +46,7 @@
 
 #window {
   margin-left: 15pt;
-  color: #f7f9fd;
+  color: #ffe4a7;
   margin-right: 20pt;
 }
 
@@ -86,37 +86,37 @@ tooltip {
 }
 
 #cpu {
-  color: #f7f9fd;
+  color: #ffe4a7;
   margin-right: 20pt;
 }
 
 #temperature {
-  color: #f7f9fd;
+  color: #ffe4a7;
   margin-right: 20pt;
 }
 
 #disk {
-  color: #f7f9fd;
+  color: #ffe4a7;
   margin-right: 20pt;
 }
 
 #memory {
-  color: #f7f9fd;
+  color: #ffe4a7;
   margin-right: 20pt;
 }
 
 #backlight {
-  color: #f7f9fd;
+  color: #ffe4a7;
   margin-right: 20pt;
 }
 
 #pulseaudio {
-  color: #f7f9fd;
+  color: #ffe4a7;
   margin-right: 20pt;
 }
 
 #battery {
-  color: #f7f9fd;
+  color: #ffe4a7;
   margin-right: 20pt;
 }
 
@@ -124,7 +124,7 @@ tooltip {
 #battery.good,
 #battery.charging,
 #battery.plugged {
-  color: #f7f9fd;
+  color: #ffe4a7;
 }
 
 #battery.critical:not(.charging) {
@@ -138,5 +138,5 @@ tooltip {
 
 #custom-screenshot {
   margin-right: 20pt;
-  color: #f7f9fd;
+  color: #ffe4a7;
 }
