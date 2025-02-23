@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 16pt;
+  font-weight: 800;
+  transition-property: background;
+  transition-duration: 0.5s;
+}
+
 #waybar.top {
   background: none;
 }
@@ -8,8 +18,17 @@
   padding: 6pt;
 }
 
-#clock {
-  color: #ffe4a7;
+#waybar.bottom box.modules-center {
+  background: #181825;
+  margin-top: 5pt;
+  padding: 0 4pt;
+  border-top-left-radius: 10pt;
+  border-top-right-radius: 10pt;
+  box-shadow: 0 0 3pt #181825;
+}
+
+#waybar *:hover {
+  color: #391807;
 }
 
 #workspaces {
@@ -50,59 +69,57 @@
   margin-right: 20pt;
 }
 
-@keyframes blink {
-  to {
-    background-color: rgba(195, 133, 89, 1);
-    color: #cdd6f4;
-  }
+#clock {
+  color: #ffe4a7;
 }
 
-#waybar.bottom {
-  background: none;
-}
-#waybar.bottom box.modules-center {
-  background: #181825;
-  margin-top: 5pt;
-  padding: 0 4pt;
-  border-top-left-radius: 10pt;
-  border-top-right-radius: 10pt;
-  box-shadow: 0 0 3pt #181825;
+#custom-gpu-usage {
+  margin-right: 5pt;
+  color: #ffe4a7;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "JetBrainsMono Nerd Font";
-  font-size: 13pt;
-  font-weight: 800;
-  transition-property: background;
-  transition-duration: 0.5s;
+#custom-gpu-icon {
+  margin-right: 9pt;
+  color: #ffe4a7;
 }
 
-tooltip {
-  background: #11111b;
-  color: #cdd6f4;
-  border-radius: 5pt;
+#custom-gpu-temperature {
+  margin-right: 40pt;
+  color: #ffe4a7;
 }
 
 #cpu {
+  margin-right: 3pt;
   color: #ffe4a7;
-  margin-right: 20pt;
+}
+
+#custom-cpu-icon{
+  color: #ffe4a7;
 }
 
 #temperature {
   color: #ffe4a7;
-  margin-right: 20pt;
+  margin-right: 35pt;
+}
+
+#custom-disk-icon{
+  margin-right: 6pt;
+  color: #ffe4a7;
 }
 
 #disk {
   color: #ffe4a7;
-  margin-right: 20pt;
+  margin-right: 26pt;
+}
+
+#custom-memory-icon{
+  margin-right: 12pt;
+  color: #ffe4a7;
 }
 
 #memory {
   color: #ffe4a7;
-  margin-right: 20pt;
+  margin-right: 35pt;
 }
 
 #backlight {
@@ -115,9 +132,14 @@ tooltip {
   margin-right: 20pt;
 }
 
+#custom-battery-icon{
+  color: #ffe4a7;
+  margin-right: 4pt;
+}
+
 #battery {
   color: #ffe4a7;
-  margin-right: 20pt;
+  margin-right: 30pt;
 }
 
 #battery.full,

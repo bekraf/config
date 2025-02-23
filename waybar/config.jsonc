@@ -16,34 +16,54 @@
     ],
     "modules-center": ["clock"],
     "modules-right": [
+      "group/gpu",
+      "group/cpu",
       "group/system",
       "group/hardware",
       "group/audio",
-      "battery",
+      "group/battery",
       "custom/screenshot"
     ],
-
     // Group definitions
-    "group/system": {
+    "group/gpu": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/gpu-usage",
+        "custom/gpu-icon",
+        "custom/gpu-temperature"
+      ]
+    },
+    "group/cpu": {
       "orientation": "horizontal",
       "modules": [
         "cpu",
+        "custom/cpu-icon",
+        "temperature"
+      ]
+    },
+    "group/system": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/memory-icon",
         "memory",
+        "custom/disk-icon",
         "disk"
       ]
     },
-    "group/hardware": {
+    "group/misc": {
       "orientation": "horizontal",
-      "modules": [
-        "temperature",
-        "backlight"
+      "modules":  [
+        "backlight",
+        "pulseaudio"
       ]
     },
-    "group/audio": {
+    "group/battery": {
       "orientation": "horizontal",
-      "modules": ["pulseaudio"]
+      "modules":  [
+        "custom/battery-icon",
+        "battery"
+      ]
     },
-
     // Module configurations
     "hyprland/workspaces": {
       "all-outputs": true,
@@ -52,7 +72,6 @@
       "on-scroll-down": "hyprctl dispatch workspace e-1",
       "sort-by-number": true
     },
-
     "mpris": {
       "format": "{player_icon} {artist} - {title}",
       "format-paused": "{status_icon} {artist} - {title}",
@@ -68,7 +87,6 @@
         "stopped": ""
       }
     },
-
     "hyprland/window": {
       "format": "{title}",
       "separate-outputs": true,
@@ -80,22 +98,52 @@
         "root@rbe(.*)": "󰈸 $1"
       }
     },
-
     "clock": {
       "format": "  {:%a %e %b %H:%M}",
       "tooltip-format": "<tt>{calendar}</tt>",
       "calendar": {
         "mode": "month",
         "format": {
-          "months": "<span color='#fc9d03'><b>{}</b></span>",
-          "days": "<span color='#fc9d03'><b>{}</b></span>",
-          "weeks": "<span color='#fc9d03'><b>W{}</b></span>",
-          "weekdays": "<span color='#fc9d03'><b>{}</b></span>",
-          "today": "<span color='#f38ba8'><b>{}</b></span>"
+          "months": "<span color='#ffe4a7'><b>{}</b></span>",
+          "days": "<span color='#ffe4a7'><b>{}</b></span>",
+          "weeks": "<span color='#ffe4a7'><b>W{}</b></span>",
+          "weekdays": "<span color='#ffe4a7'><b>{}</b></span>",
+          "today": "<span color='#ffffff'><b>{}</b></span>"
         }
       }
     },
-
+    "custom/gpu-usage": {
+      "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | tr -d '\n'",
+      "format": "%{}",
+      "return-type": "",
+      "interval": 2,
+      "tooltip-format": "NVIDIA RTX 2000 Ada 8188MiB 30W"
+    },
+    "custom/gpu-icon": {
+      "format": "󰢮",
+      "tooltip-format": "NVIDIA RTX 2000 Ada 8188MiB 30W"
+    },
+    "custom/gpu-temperature": {
+      "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits | tr -d '\n'",
+      "format": "{}°C",
+      "return-type": "",
+      "interval": 2,
+      "tooltip-format": "NVIDIA RTX 2000 Ada 8188MiB 30W"
+    },
+    "cpu": {
+      "interval": 2,
+      "format": "%{usage}",
+      "format-alt": "{load}",
+      "states": {
+        "warning": 70,
+        "critical": 90
+      },
+      "tooltip-format": "Load: {load}\nAverage: {avg_frequency}GHz\nUsage: {usage}%"
+    },
+    "custom/cpu-icon": {
+      "format": " ",
+      "return-type": ""
+    },
     "temperature": {
       "interval": 10,
       "thermal-zone": 2,
@@ -104,43 +152,36 @@
       "format-icons": ["", "", "", "", ""],
       "tooltip-format": "CPU Temperature: {temperatureC}°C"
     },
-
-    "cpu": {
-      "interval": 1,
-      "format": " {usage}%",
-      "format-alt": "  {load}",
-      "states": {
-        "warning": 70,
-        "critical": 90
-      },
-      "tooltip-format": "Load: {load}\nAverage: {avg_frequency}GHz\nUsage: {usage}%"
+    "custom/memory-icon": {
+      "format": "",
+      "return-type": ""
     },
-
     "memory": {
       "interval": 30,
-      "format": " {percentage}%",
+      "format": "{percentage}%",
       "max-length": 13,
       "tooltip-format": "Used: {used}GiB\nTotal: {total}GiB"
     },
-
+    "custom/disk-icon": {
+      "format": "󰋊",
+      "return-type": ""
+    },
     "disk": {
       "interval": 30,
-      "format": "󰋊 {percentage_used}%",
-      "format-alt": "󰋊 {used}/{total}",
+      "format": "{percentage_used}%",
+      "format-alt": "{used}/{total}",
       "path": "/",
       "tooltip-format": "Used: {used}\nFree: {free}\nTotal: {total}"
     },
-
     "backlight": {
       "format": "󰛨 {percent}%",
       "format-icons": ["󰃞", "󰃟", "󰃠"],
       "tooltip": false
     },
-
     "pulseaudio": {
-      "format": "{icon} {volume}%",
+      "format": "󰝟 {volume}%",
       "format-muted": "󰝟",
-      "format-bluetooth": "{icon}  {volume}%",
+      "format-bluetooth": "󰝟  {volume}%",
       "format-bluetooth-muted": "󰝟 ",
       "format-icons": {
         "headset": "",
@@ -154,10 +195,13 @@
         "HDA NVidia Digital Stereo (HDMI)"
       ]
     },
-
+    "custom/battery-icon": {
+      "format": "",
+      "return-type": ""
+    },
     "battery": {
-      "format": " {capacity}%",
-      "format-plugged": " {capacity}%",
+      "format": "{capacity}%",
+      "format-plugged": "{capacity}%",
       "format-icons": ["", "", "", "", ""],
       "max-length": 25,
       "tooltip": true,
@@ -166,10 +210,8 @@
         "good": 70,
         "warning": 30,
         "critical": 15
-      },
-      "on-click": "rog-control-center"
+      }
     },
-
     "custom/screenshot": {
       "format": "",
       "on-click": "grim -g \"$(slurp)\" \"${HOME}/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png\"",
