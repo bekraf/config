@@ -2,30 +2,30 @@
   background: none;
 }
 #waybar.top > box.horizontal {
-  background: rgba(245, 196, 2, 0.08);
+  background: rgba(163, 60, 0, 0.8);
   border-radius: 12pt;
   margin: 6pt;
   padding: 2pt;
 }
 
 #clock {
-  color: #df8a3b;
+  color: #f7f9fd;
 }
 
 #workspaces {
   margin-left: 12pt;
 }
 #workspaces button {
-  color: #585b70;
+  color: #f7f9fd;
 }
 #workspaces button:not(:first-child) {
   margin-left: 2pt;
 }
 #workspaces button.visible {
-  color: #89b4fa;
+  color: #234990;
 }
 #workspaces button.active {
-  color: #f38ba8;
+  color: #ec4102;
 }
 #workspaces button:hover, #workspaces button:focus {
   background: none;
@@ -33,12 +33,12 @@
   box-shadow: none;
 }
 #workspaces button:hover:not(.active):not(.visible), #workspaces button:focus:not(.active):not(.visible) {
-  color: #9399b2;
+  color: #f7f9fd;
 }
 
 #mpris {
-  background: #1e1e2e;
-  color: #a6e3a1;
+  background: #bd450e;
+  color: #f7f9fd;
   border-radius: 12pt;
   margin-left: 15pt;
   padding: 0 8pt;
@@ -46,11 +46,27 @@
 
 #window {
   margin-left: 15pt;
+  color: #f7f9fd;
   margin-right: 20pt;
 }
 
 #memory {
-  color: #fab387;
+  color: #f7f9fd;
+  margin-right: 12pt;
+}
+
+#cpu {
+  color: #f7f9fd;
+  margin-right: 12pt;
+}
+
+#disk {
+  color: #f7f9fd;
+  margin-right: 12pt;
+}
+
+#temperature {
+  color: #f7f9fd;
   margin-right: 12pt;
 }
 
@@ -58,7 +74,7 @@
   margin-right: 10pt;
 }
 #tray menu {
-  background: #1e1e2e;
+  background: #f7f9fd;
   padding: 2pt;
 }
 #tray menu * {
@@ -70,22 +86,22 @@
 
 @keyframes blink {
   to {
-    background-color: rgba(30, 34, 42, 0.5);
+    background-color: rgba(195, 133, 89, 1);
     color: #cdd6f4;
   }
 }
 #backlight {
-  color: #cba6f7;
+  color: #f7f9fd;
   margin-right: 10pt;
 }
 
 #pulseaudio {
-  color: #74c7ec;
+  color: #f7f9fd;
   margin-right: 10pt;
 }
 
 #battery {
-  color: #f9e2af;
+  color: #f7f9fd;
   margin-right: 15pt;
 }
 
@@ -93,7 +109,7 @@
 #battery.good,
 #battery.charging,
 #battery.plugged {
-  color: #a6e3a1;
+  color: #f7f9fd;
 }
 
 #battery.critical:not(.charging) {
@@ -109,6 +125,7 @@
 #custom-screenshot {
   margin-right: 18pt;
   font-size: 10pt;
+  color: #f7f9fd;
 }
 
 
@@ -140,5 +157,3 @@ tooltip {
   color: #cdd6f4;
   border-radius: 5pt;
 }
-
-/*# sourceMappingURL=style.css.map */

@@ -16,6 +16,9 @@
       "clock"
     ],
     "modules-right": [
+      "temperature",
+      "cpu",
+      "disk",
       "memory",
       "tray",
       "backlight",
@@ -56,7 +59,8 @@
         "(.*) — Mozilla Firefox": "󰈹  $1",
         "(.*) - Chromium": "  $1",
         "(.*) - VSCodium": "󰨞  $1",
-        "rbe@rbe:/": "  $1",
+        "rbe@rbe:(.*)": "  $1",
+        "root@rbe(.*)": "󰈸  $1"
       }
     },
     "clock": {
@@ -73,11 +77,39 @@
         }
       }
     },
+    "temperature": {
+      "interval": 10,
+      "thermal-zone": 2,
+      "critical-threshold": 80,
+      "format": "{icon} {temperatureC}°C",
+      "format-icons": ["", "", "", "", ""],
+      "tooltip": true,
+      "tooltip-format": "CPU Temperature: {temperatureC}°C"
+    },
+    "cpu": {
+      "interval": 1,
+      "format": " {usage}%",
+      "format-alt": " {load}",
+      "states": {
+        "warning": 70,
+        "critical": 90
+    },
+    "tooltip": true,
+    "tooltip-format": "Load: {load}\nAverage: {avg_frequency}GHz\nUsage: {usage}%"
+    },
     "memory": {
       "interval": 30,
-      "format": " Mem {used}GiB",
+      "format": " {percentage}%",
       "max-length": 13,
-      "tooltip": false
+      "tooltip-format": "Used: {used}GiB\nTotal: {total}GiB"
+    },
+    "disk": {
+      "interval": 30,
+      "format": "󰋊 {percentage_used}%",
+      "format-alt": "󰋊 {used}/{total}",
+      "path": "/",
+      "tooltip": true,
+      "tooltip-format": "Used: {used}\nFree: {free}\nTotal: {total}"
     },
     "tray": {
       "icon-size": 15,

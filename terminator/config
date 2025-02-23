@@ -7,8 +7,7 @@
 [profiles]
   [[default]]
     icon_bell = False
-    background_color = "#f5c402"
-    background_darkness = 0.03
+    background_darkness = 0.75
     background_type = transparent
     font = JetBrainsMonoNL Nerd Font Propo 10
     foreground_color = "#fffeee"
@@ -16,10 +15,12 @@
     palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#00294b:#ad7fa8:#34e2e2:#eeeeec"
     use_system_font = False
     title_hide_sizetext = True
-    title_transmit_fg_color = "#ff7800"
-    title_transmit_bg_color = "#ff7800"
-    title_inactive_fg_color = "#ffbe6f"
-    title_inactive_bg_color = "#ffbe6f"
+    title_transmit_fg_color = "#f7f9fd"
+    title_transmit_bg_color = "#89380f"
+    title_inactive_fg_color = "#986a44"
+    title_inactive_bg_color = "#89380f"
+    title_use_system_font = False
+    title_font = JetBrainsMono Nerd Font Light 9
 [layouts]
   [[default]]
     [[[window0]]]
