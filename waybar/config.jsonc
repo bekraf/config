@@ -3,68 +3,86 @@
     "layer": "top",
     "output": ["eDP-1"],
     "position": "top",
-    "margin-top": 0,
-    "margin-bottom": 0,
-    "margin-left": 50,
-    "margin-right": 50,
+    "margin": {
+      "top": 0,
+      "bottom": 0,
+      "left": 50,
+      "right": 50
+    },
     "modules-left": [
       "hyprland/workspaces",
       "mpris",
       "hyprland/window"
     ],
-    "modules-center": [
-      "clock"
-    ],
+    "modules-center": ["clock"],
     "modules-right": [
-      "temperature",
-      "cpu",
-      "disk",
-      "memory",
-      "tray",
-      "backlight",
-      "pulseaudio",
+      "group/system",
+      "group/hardware",
+      "group/audio",
       "battery",
-      "custom/color-picker",
-      "custom/screenshot",
-      "custom/wallpaper",
-      "custom/power"
+      "custom/screenshot"
     ],
+
+    // Group definitions
+    "group/system": {
+      "orientation": "horizontal",
+      "modules": [
+        "cpu",
+        "memory",
+        "disk"
+      ]
+    },
+    "group/hardware": {
+      "orientation": "horizontal",
+      "modules": [
+        "temperature",
+        "backlight"
+      ]
+    },
+    "group/audio": {
+      "orientation": "horizontal",
+      "modules": ["pulseaudio"]
+    },
+
+    // Module configurations
     "hyprland/workspaces": {
       "all-outputs": true,
       "format": "{name}",
-      "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
-      "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
-      "sort-by-number": true,
-      "active-only": false
+      "on-scroll-up": "hyprctl dispatch workspace e+1",
+      "on-scroll-down": "hyprctl dispatch workspace e-1",
+      "sort-by-number": true
     },
+
     "mpris": {
       "format": "{player_icon} {artist} - {title}",
       "format-paused": "{status_icon} {artist} - {title}",
-      "tooltip-format": "{player} ({status})\r{artist} - {title}\r\rLeft-Click:   Play / Pause\rMiddle-Click: Previous Track\rRight-Click:  Next Track",
+      "tooltip-format": "{player} ({status})\n{artist} - {title}\n\nControls:\nLeft-Click: Play/Pause\nMiddle-Click: Previous\nRight-Click: Next",
       "title-len": 20,
       "player-icons": {
         "default": "▶",
-        "mpv": "",
+        "vlc": "󰕼",
         "spotify": "󰓇"
       },
       "status-icons": {
-        "paused": "",
-        "stopped": ""
+        "paused": "",
+        "stopped": ""
       }
     },
+
     "hyprland/window": {
       "format": "{title}",
       "separate-outputs": true,
       "rewrite": {
-        "(.*) — Mozilla Firefox": "󰈹  $1",
-        "(.*) - Chromium": "  $1",
-        "(.*) - VSCodium": "󰨞  $1",
-        "rbe@rbe:(.*)": "  $1",
-        "root@rbe(.*)": "󰈸  $1"
+        "(.*) — Mozilla Firefox": "󰈹 $1",
+        "(.*) - Chromium": "󰊯 $1",
+        "(.*) - VSCodium": "󰨞 $1",
+        "rbe@rbe:(.*)": " $1",
+        "root@rbe(.*)": "󰈸 $1"
       }
     },
+
     "clock": {
-      "format": "  {:%a %e %b %H:%M}",
+      "format": " {:%a %e %b %H:%M}",
       "tooltip-format": "<tt>{calendar}</tt>",
       "calendar": {
         "mode": "month",
@@ -77,65 +95,56 @@
         }
       }
     },
+
     "temperature": {
       "interval": 10,
       "thermal-zone": 2,
       "critical-threshold": 80,
       "format": "{icon} {temperatureC}°C",
       "format-icons": ["", "", "", "", ""],
-      "tooltip": true,
       "tooltip-format": "CPU Temperature: {temperatureC}°C"
     },
+
     "cpu": {
       "interval": 1,
       "format": " {usage}%",
-      "format-alt": " {load}",
+      "format-alt": " {load}",
       "states": {
         "warning": 70,
         "critical": 90
+      },
+      "tooltip-format": "Load: {load}\nAverage: {avg_frequency}GHz\nUsage: {usage}%"
     },
-    "tooltip": true,
-    "tooltip-format": "Load: {load}\nAverage: {avg_frequency}GHz\nUsage: {usage}%"
-    },
+
     "memory": {
       "interval": 30,
-      "format": " {percentage}%",
+      "format": " {percentage}%",
       "max-length": 13,
       "tooltip-format": "Used: {used}GiB\nTotal: {total}GiB"
     },
+
     "disk": {
       "interval": 30,
       "format": "󰋊 {percentage_used}%",
       "format-alt": "󰋊 {used}/{total}",
       "path": "/",
-      "tooltip": true,
       "tooltip-format": "Used: {used}\nFree: {free}\nTotal: {total}"
     },
-    "tray": {
-      "icon-size": 15,
-      "spacing": 10
-    },
+
     "backlight": {
-      "format": "{icon} <b>{percent}%</b>",
-      "format-icons": [
-        "󰃞",
-        "󰃟",
-        "󰃠"
-      ],
+      "format": "󰛨 {percent}%",
+      "format-icons": ["󰃞", "󰃟", "󰃠"],
       "tooltip": false
     },
+
     "pulseaudio": {
-      "format": "{icon} <b>{volume}%</b>",
-      "format-muted": " 󰝟 ",
-      "format-bluetooth": "{icon}  <b>{volume}%</b>",
-      "format-bluetooth-muted": "󰝟 ",
+      "format": "{icon} {volume}%",
+      "format-muted": "󰝟",
+      "format-bluetooth": "{icon} {volume}%",
+      "format-bluetooth-muted": "󰝟",
       "format-icons": {
-        "headset": "",
-        "default": [
-          "󰕿",
-          "󰖀",
-          "󰕾"
-        ]
+        "headset": "",
+        "default": ["󰕿", "󰖀", "󰕾"]
       },
       "tooltip": true,
       "on-click": "pavucontrol",
@@ -145,16 +154,11 @@
         "HDA NVidia Digital Stereo (HDMI)"
       ]
     },
+
     "battery": {
       "format": "{icon} {capacity}%",
-      "format-plugged": " {capacity}%",
-      "format-icons": [
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
+      "format-plugged": " {capacity}%",
+      "format-icons": ["", "", "", "", ""],
       "max-length": 25,
       "tooltip": true,
       "interval": 5,
@@ -165,11 +169,11 @@
       },
       "on-click": "rog-control-center"
     },
+
     "custom/screenshot": {
       "format": "",
-      "on-click": "flameshot full",
-      "on-click-right": "flameshot gui",
-      "tooltip-format": "Left-click:  Full Screen Screenshot\nRight-click: Area Screenshot"
+      "on-click": "grim -g \"$(slurp)\" \"${HOME}/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png\"",
+      "on-click-right": "slurp | xargs -I {} sh -c 'sleep 5 && grim -g \"{}\" \"${HOME}/Pictures/screenshot_$(date '+%Y-%m-%d_%H-%M-%S').png\"; notify-send \"Delayed Screenshot\" \"Saved to Pictures folder after 5S delay\"'"
     }
   }
 ]

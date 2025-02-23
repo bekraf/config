@@ -4,8 +4,8 @@
 #waybar.top > box.horizontal {
   background: rgba(163, 60, 0, 0.8);
   border-radius: 12pt;
-  margin: 6pt;
-  padding: 2pt;
+  margin: 15pt;
+  padding: 6pt;
 }
 
 #clock {
@@ -22,10 +22,10 @@
   margin-left: 2pt;
 }
 #workspaces button.visible {
-  color: #234990;
+  color: #f7f9fd;
 }
 #workspaces button.active {
-  color: #ec4102;
+  color: #f7f9fd;
 }
 #workspaces button:hover, #workspaces button:focus {
   background: none;
@@ -50,59 +50,74 @@
   margin-right: 20pt;
 }
 
-#memory {
-  color: #f7f9fd;
-  margin-right: 12pt;
-}
-
-#cpu {
-  color: #f7f9fd;
-  margin-right: 12pt;
-}
-
-#disk {
-  color: #f7f9fd;
-  margin-right: 12pt;
-}
-
-#temperature {
-  color: #f7f9fd;
-  margin-right: 12pt;
-}
-
-#tray {
-  margin-right: 10pt;
-}
-#tray menu {
-  background: #f7f9fd;
-  padding: 2pt;
-}
-#tray menu * {
-  margin: 2pt;
-}
-#tray menu check {
-  margin-right: 4pt;
-}
-
 @keyframes blink {
   to {
     background-color: rgba(195, 133, 89, 1);
     color: #cdd6f4;
   }
 }
+
+#waybar.bottom {
+  background: none;
+}
+#waybar.bottom box.modules-center {
+  background: #181825;
+  margin-top: 5pt;
+  padding: 0 4pt;
+  border-top-left-radius: 10pt;
+  border-top-right-radius: 10pt;
+  box-shadow: 0 0 3pt #181825;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13pt;
+  font-weight: 800;
+  transition-property: background;
+  transition-duration: 0.5s;
+}
+
+tooltip {
+  background: #11111b;
+  color: #cdd6f4;
+  border-radius: 5pt;
+}
+
+#cpu {
+  color: #f7f9fd;
+  margin-right: 20pt;
+}
+
+#temperature {
+  color: #f7f9fd;
+  margin-right: 20pt;
+}
+
+#disk {
+  color: #f7f9fd;
+  margin-right: 20pt;
+}
+
+#memory {
+  color: #f7f9fd;
+  margin-right: 20pt;
+}
+
 #backlight {
   color: #f7f9fd;
-  margin-right: 10pt;
+  margin-right: 20pt;
 }
 
 #pulseaudio {
   color: #f7f9fd;
-  margin-right: 10pt;
+  margin-right: 20pt;
 }
 
 #battery {
   color: #f7f9fd;
-  margin-right: 15pt;
+  margin-right: 20pt;
 }
 
 #battery.full,
@@ -121,39 +136,7 @@
   animation-direction: alternate;
 }
 
-
 #custom-screenshot {
-  margin-right: 18pt;
-  font-size: 10pt;
+  margin-right: 20pt;
   color: #f7f9fd;
-}
-
-
-
-#waybar.bottom {
-  background: none;
-}
-#waybar.bottom box.modules-center {
-  background: #181825;
-  margin-top: 5pt;
-  padding: 0 4pt;
-  border-top-left-radius: 10pt;
-  border-top-right-radius: 10pt;
-  box-shadow: 0 0 3pt #181825;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "JetBrainsMono Nerd Font";
-  font-size: 8.5pt;
-  font-weight: 800;
-  transition-property: background;
-  transition-duration: 0.5s;
-}
-
-tooltip {
-  background: #11111b;
-  color: #cdd6f4;
-  border-radius: 5pt;
 }
