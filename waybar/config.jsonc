@@ -16,54 +16,15 @@
     ],
     "modules-center": ["clock"],
     "modules-right": [
-      "group/gpu",
-      "group/cpu",
-      "group/system",
-      "group/hardware",
-      "group/audio",
-      "group/battery",
+      "custom/gpu-usage",
+      "cpu",
+      "memory",
+      "disk",
+      "backlight",
+      "pulseaudio",
+      "battery",
       "custom/screenshot"
     ],
-    // Group definitions
-    "group/gpu": {
-      "orientation": "horizontal",
-      "modules": [
-        "custom/gpu-usage",
-        "custom/gpu-icon",
-        "custom/gpu-temperature"
-      ]
-    },
-    "group/cpu": {
-      "orientation": "horizontal",
-      "modules": [
-        "cpu",
-        "custom/cpu-icon",
-        "temperature"
-      ]
-    },
-    "group/system": {
-      "orientation": "horizontal",
-      "modules": [
-        "custom/memory-icon",
-        "memory",
-        "custom/disk-icon",
-        "disk"
-      ]
-    },
-    "group/misc": {
-      "orientation": "horizontal",
-      "modules":  [
-        "backlight",
-        "pulseaudio"
-      ]
-    },
-    "group/battery": {
-      "orientation": "horizontal",
-      "modules":  [
-        "custom/battery-icon",
-        "battery"
-      ]
-    },
     // Module configurations
     "hyprland/workspaces": {
       "all-outputs": true,
@@ -114,26 +75,15 @@
     },
     "custom/gpu-usage": {
       "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | tr -d '\n'",
-      "format": "%{}",
-      "return-type": "",
-      "interval": 2,
-      "tooltip-format": "NVIDIA RTX 2000 Ada 8188MiB 30W"
-    },
-    "custom/gpu-icon": {
-      "format": "󰢮",
-      "tooltip-format": "NVIDIA RTX 2000 Ada 8188MiB 30W"
-    },
-    "custom/gpu-temperature": {
-      "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits | tr -d '\n'",
-      "format": "{}°C",
+      "format": "󰢮 %{}",
       "return-type": "",
       "interval": 2,
       "tooltip-format": "NVIDIA RTX 2000 Ada 8188MiB 30W"
     },
     "cpu": {
       "interval": 2,
-      "format": "%{usage}",
-      "format-alt": "{load}",
+      "format": " {usage}%",
+      "format-alt": " {load}",
       "states": {
         "warning": 70,
         "critical": 90
@@ -141,68 +91,40 @@
       "tooltip-format": "Load: {load}\nAverage: {avg_frequency}GHz\nUsage: {usage}%"
     },
     "custom/cpu-icon": {
-      "format": " ",
-      "return-type": ""
-    },
-    "temperature": {
-      "interval": 10,
-      "thermal-zone": 2,
-      "critical-threshold": 80,
-      "format": "{temperatureC}°C",
-      "format-icons": ["", "", "", "", ""],
-      "tooltip-format": "CPU Temperature: {temperatureC}°C"
-    },
-    "custom/memory-icon": {
-      "format": "",
+      "format": " ",
       "return-type": ""
     },
     "memory": {
       "interval": 30,
-      "format": "{percentage}%",
+      "format": " {percentage}%",
       "max-length": 13,
       "tooltip-format": "Used: {used}GiB\nTotal: {total}GiB"
     },
-    "custom/disk-icon": {
-      "format": "󰋊",
-      "return-type": ""
-    },
     "disk": {
       "interval": 30,
-      "format": "{percentage_used}%",
+      "format": " {percentage_used}%",
       "format-alt": "{used}/{total}",
       "path": "/",
       "tooltip-format": "Used: {used}\nFree: {free}\nTotal: {total}"
     },
     "backlight": {
-      "format": "󰛨 {percent}%",
+      "format": " {percent}%",
       "format-icons": ["󰃞", "󰃟", "󰃠"],
       "tooltip": false
     },
     "pulseaudio": {
-      "format": "󰝟 {volume}%",
-      "format-muted": "󰝟",
-      "format-bluetooth": "󰝟  {volume}%",
-      "format-bluetooth-muted": "󰝟 ",
+      "format": "{icon}{volume}%",
+      "format-muted": " ",
+      "format-bluetooth": "󰂰{icon}  {volume}%",
+      "format-bluetooth-muted": "󰂰  ",
       "format-icons": {
-        "headset": "",
-        "default": ["󰕿", "󰖀", "󰕾"]
-      },
-      "tooltip": true,
-      "on-click": "pavucontrol",
-      "ignored-sinks": [
-        "JamesDSP Sink",
-        "Easy Effects Sink",
-        "HDA NVidia Digital Stereo (HDMI)"
-      ]
-    },
-    "custom/battery-icon": {
-      "format": "",
-      "return-type": ""
+        "default": ["", " ", " " ]
+      }
     },
     "battery": {
-      "format": "{capacity}%",
-      "format-plugged": "{capacity}%",
-      "format-icons": ["", "", "", "", ""],
+      "format": "{icon}{capacity}%",
+      "format-plugged": "{icon}{capacity}%",
+      "format-icons": ["󰂎", "󰁻", "󰁾", "󰂁", "󰁹"],
       "max-length": 25,
       "tooltip": true,
       "interval": 5,

@@ -74,68 +74,35 @@
 }
 
 #custom-gpu-usage {
-  margin-right: 5pt;
-  color: #ffe4a7;
-}
-
-#custom-gpu-icon {
-  margin-right: 9pt;
-  color: #ffe4a7;
-}
-
-#custom-gpu-temperature {
-  margin-right: 40pt;
+  margin-right: 34pt;
   color: #ffe4a7;
 }
 
 #cpu {
-  margin-right: 3pt;
-  color: #ffe4a7;
-}
-
-#custom-cpu-icon{
-  color: #ffe4a7;
-}
-
-#temperature {
-  color: #ffe4a7;
-  margin-right: 35pt;
-}
-
-#custom-disk-icon{
-  margin-right: 6pt;
+  margin-right: 30pt;
   color: #ffe4a7;
 }
 
 #disk {
   color: #ffe4a7;
-  margin-right: 26pt;
-}
-
-#custom-memory-icon{
-  margin-right: 12pt;
-  color: #ffe4a7;
+  margin-right: 24pt;
 }
 
 #memory {
   color: #ffe4a7;
-  margin-right: 35pt;
+  margin-right: 30pt;
 }
 
 #backlight {
   color: #ffe4a7;
-  margin-right: 20pt;
+  margin-right: 25pt;
 }
 
 #pulseaudio {
   color: #ffe4a7;
-  margin-right: 20pt;
+  margin-right: 30pt;
 }
 
-#custom-battery-icon{
-  color: #ffe4a7;
-  margin-right: 4pt;
-}
 
 #battery {
   color: #ffe4a7;
