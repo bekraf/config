@@ -2,7 +2,6 @@
   focus = mouse
   window_state = hidden
   ask_before_closing = never
-  link_single_click = True
 [keybindings]
 [profiles]
   [[default]]
