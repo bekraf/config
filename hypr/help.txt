@@ -1,0 +1,10 @@
+
+your middle monitor at work is acting up after lunch break?
+
+  # 1. Disable the problematic monitor
+  hyprctl keyword monitor "DP-6,disable"
+
+  # 2. Wait a moment, then re-enable with correct settings
+  hyprctl keyword monitor "DP-6,2560x1440@59.95,1920x0,1"
+
+
