@@ -1,0 +1,50 @@
+window {
+    margin: 0px;
+    border: 2px solid #89380f;
+    border-radius: 8px;
+    background-color: #391807;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+#input {
+    margin: 8px;
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    background-color: #89380f;
+    color: #ffe4a7;
+}
+
+#input image {
+    color: #ffe4a7;
+}
+
+#outer-box,
+#inner-box {
+    margin: 4px;
+    border: none;
+    background-color: #391807;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 4px;
+    color: #ffe4a7;
+}
+
+#entry {
+    border-radius: 6px;
+}
+
+#entry:selected {
+    background-color: #234990;
+}
+
+#entry:selected #text {
+    color: #ffe4a7;
+}
