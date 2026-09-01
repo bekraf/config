@@ -1,0 +1,5 @@
+# Sessiestatus van de Qt-interface (vensterposities, recente bestanden).
+vlc-qt-interface.conf
+
+# Back-ups van vlcrc.
+vlcrc.backup-*
