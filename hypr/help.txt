@@ -1,10 +1,15 @@
 
 your middle monitor at work is acting up after lunch break?
 
+  (Lua config: `hyprctl dispatch` only takes dispatchers (hl.dsp.*) and wraps them
+   in hl.dispatch(). For anything else, like hl.monitor(), use `hyprctl eval`.)
+
   # 1. Disable the problematic monitor
-  hyprctl keyword monitor "DP-6,disable"
+  hyprctl eval 'hl.monitor({ output = "DP-6", disabled = true })'
 
   # 2. Wait a moment, then re-enable with correct settings
-  hyprctl keyword monitor "DP-6,2560x1440@59.95,1920x0,1"
+  hyprctl eval 'hl.monitor({ output = "DP-6", mode = "2560x1440@59.95", position = "1920x0", scale = 1 })'
 
-
+  # handy: inspect live state
+  hyprctl monitors all
+  hyprctl repl            # interactive Lua REPL

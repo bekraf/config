@@ -16,7 +16,6 @@
     ],
     "modules-center": ["clock"],
     "modules-right": [
-      "custom/gpu-usage",
       "cpu",
       "memory",
       "disk",
@@ -29,8 +28,8 @@
     "hyprland/workspaces": {
       "all-outputs": true,
       "format": "{name}",
-      "on-scroll-up": "hyprctl dispatch workspace e+1",
-      "on-scroll-down": "hyprctl dispatch workspace e-1",
+      "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+      "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
       "sort-by-number": true
     },
     "mpris": {
@@ -72,13 +71,6 @@
           "today": "<span color='#ffffff'><b>{}</b></span>"
         }
       }
-    },
-    "custom/gpu-usage": {
-      "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | tr -d '\n'",
-      "format": "󰢮 %{}",
-      "return-type": "",
-      "interval": 2,
-      "tooltip-format": "NVIDIA RTX 2000 Ada 8188MiB 30W"
     },
     "cpu": {
       "interval": 2,
